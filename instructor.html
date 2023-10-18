@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instructores</title>
+</head>
+
+<body>
+  <script>
+
+    function Instructor(nombre, linea, jornada) {
+      this.nombre = nombre;
+      this.linea = linea;
+      this.jornada = jornada;
+    }
+
+    Instructor.prototype.informacionInstructor = function () {
+      return `Nombre: ${this.nombre}, Línea: ${this.linea}, Jornada: ${this.jornada}`;
+    };
+
+
+    Instructor.prototype.programaFormacion = function () {
+      if (this.linea === "Software") {
+        return "Programa de Formación: Análisis y Desarrollo de Software";
+      } else if (this.linea === "Hardware") {
+        return "Programa de Formación: Administración de Redes";
+      } else {
+        return "No se tiene registro calificado para esta línea tecnológica";
+      }
+    };
+
+    const instructor1 = new Instructor("Juan Pérez", "Software", "Mañana");
+    const instructor2 = new Instructor("María López", "Hardware", "Tarde");
+    const instructor3 = new Instructor("Pedro González", "Electrónica", "Noche");
+
+
+
+    function InstructorPlanta(nombre, linea, jornada, fechavinculacion) {
+
+      Instructor.call(this, nombre, linea, jornada);
+      this.fechavinculacion = fechavinculacion;
+    }
+
+
+    InstructorPlanta.prototype = Object.create(Instructor.prototype);
+    InstructorPlanta.prototype.constructor = InstructorPlanta;
+
+
+    InstructorPlanta.prototype.tiempoVinculacion = function () {
+
+      const fechaVinculacion = new Date(this.fechavinculacion);
+      const fechaActual = new Date();
+      const diferencia = fechaActual - fechaVinculacion;
+      const meses = Math.floor(diferencia / (1000 * 60 * 60 * 24 * 30.44)); 
+      return `Tiempo de vinculación: ${meses} meses`;
+    };
+
+
+    const instructorPlanta1 = new InstructorPlanta("Carlos Sánchez", "Redes", "Mañana", "2020-01-15");
+
+
+
+
+
+
+    console.log("Información Instructor 1:");
+    console.log(instructor1.informacionInstructor());
+    console.log(instructor1.programaFormacion());
+
+    console.log("Información Instructor 2:");
+    console.log(instructor2.informacionInstructor());
+    console.log(instructor2.programaFormacion());
+
+    console.log("Información Instructor 3:");
+    console.log(instructor3.informacionInstructor());
+    console.log(instructor3.programaFormacion());
+
+    console.log("Información InstructorPlanta 1:");
+    console.log(instructorPlanta1.informacionInstructor());
+    console.log(instructorPlanta1.programaFormacion());
+    console.log(instructorPlanta1.tiempoVinculacion());
+  
+  </script>
+</body>
+
+</html>

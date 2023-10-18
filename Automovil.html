@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automóviles</title>
+</head>
+
+<body>
+
+  <script>
+
+    function Automovil(marca, linea, modelo, cilindraje, precio) {
+      this.marca = marca;
+      this.linea = linea;
+      this.modelo = modelo;
+      this.cilindraje = cilindraje;
+      this.precio = precio;
+    }
+
+
+    Automovil.prototype.informacionVehiculo = function () {
+      return (`Marca: ${this.marca}, Línea: ${this.linea}, Modelo: ${this.modelo}, Cilindraje: ${this.cilindraje}, Precio: $${this.precio}`)
+    };
+
+
+    Automovil.prototype.revisionTecnicoMecanica = function () {
+      const antiguedad = new Date().getFullYear() - this.modelo;
+      if (antiguedad > 5) {
+        return `Se requiere revisión técnica mecánica para el modelo ${this.modelo}`;
+      } else {
+        return `El modelo ${this.modelo} no necesita revisión técnica mecánica en este momento.`;
+      }
+    };
+
+
+    Automovil.prototype.nivelGasolina = function () {
+      const nivel = Math.floor(Math.random() * 100) + 1;
+      return `Nivel de gasolina: ${nivel}%`;
+    };
+
+
+    
+
+    
+
+
+
+
+
+
+
+
+    const auto1 = new Automovil("Toyota", "Corolla", 2020, 2000, 25000);
+    const auto2 = new Automovil("Honda", "Civic", 2018, 1800, 22000);
+    const auto3 = new Automovil("Ford", "Focus", 2022, 1600, 27000);
+
+
+    Object.assign(Automovil.prototype,  );
+
+    function Sedan(marca, linea, modelo, cilindraje, precio, numpasajeros, typebox){
+      this.mondongo = Automovil
+      this.mondongo(marca, linea, modelo, cilindraje, precio)
+      this.numpasajeros = numpasajeros
+      this.typebox = typebox
+    }
+
+
+    Sedan.prototype = new Automovil();
+    Sedan.prototype.constructor = Automovil
+
+    const autoSendan1 = new Sedan ("Audi A3", "Sedan", 2020, 20000, 130000000, 5, "automatico")
+    
+    Sedan.prototype.numeroCinturonesSeguridad = function (){
+      console.log(`el numero de sinturones de seguridad es ${this.numpasajeros}`)
+    }
+    
+    Sedan.prototype.tipoCaja = function (){
+      console.log(`el tipo de caja es ${this.typebox}`)
+    }
+    console.log(auto1.informacionVehiculo());
+    console.log(auto1.revisionTecnicoMecanica());
+    console.log(auto1.nivelGasolina());
+
+    console.log(auto2.informacionVehiculo());
+    console.log(auto2.revisionTecnicoMecanica());
+    console.log(auto2.nivelGasolina());
+
+    console.log(auto3.informacionVehiculo());
+    console.log(auto3.revisionTecnicoMecanica());
+    console.log(auto3.nivelGasolina());
+
+    autoSendan1.numeroCinturonesSeguridad()
+    autoSendan1.tipoCaja()
+
+
+
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=ç, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+    <script>
+        const aprendiz1 = {
+            nombre: 'Andres',
+            documento: '1324778126',
+            edad:19,
+
+
+            saludar : function () {
+                console.log(`Hola Me llamo ${this.nombre}`+ ` y Tengo ${this.edad} años`);
+            },
+
+            despedida : function (){
+                console.log(`Feliz Aprendizaje Les Desea ${this.nombre}`);
+            }
+
+
+
+        }
+
+
+        console.log(`tarea 1`)
+        console.log({aprendiz1});
+        console.log(`tarea 2`)
+        aprendiz1.saludar();
+        aprendiz1.despedida();
+
+
+        console.log(`tarea 3`);
+        aprendiz1.nombre = 'nicolas beltran';
+        aprendiz1.saludar();
+
+        console.log(`tarea 4`)
+        aprendiz1['apellidos'] = 'cordoba';
+        aprendiz1['nombre'] = 'german antonio';
+        aprendiz1.saludar();
+
+        console.log(`tarea 5`);
+        aprendiz1['edad'] = 25;
+        aprendiz1.saludar = function(){
+            console.log(`Hola me llamo ${this.nombre} ${this.apellidos}` +` y tengo ${this.edad} años`);
+
+        }
+        aprendiz1.saludar();
+        console.log(`tarea 6`);
+        const ficha = 'ficha';
+        const numeroficha = '2798618'
+        const programaficha = 'adso'
+        aprendiz1[ficha] = numeroficha;
+        aprendiz1['programa'] = programaficha;
+        aprendiz1.estudiar = function(){
+            console.log(`estoy matriculado en la ficha ${this.ficha}` +` y cursando 1 trimestre del programa ${this.programa}!`);
+        }
+        aprendiz1.estudiar();
+
+
+
+
+        function Aprendiz(documento, nombres, apellidos, edad, ficha, programa){
+            this.documento;
+            this.edad;
+            this.ficha;
+            this.programa;
+            this.apellidos;
+            this.nombres;
+        }
+
+        let aprendiz3 = new Aprendiz('1023864878', 'kevin nicolas beltran rivera', '19', '2798618', 'ADSO');
+
+        console.log({aprendiz3});
+
+        const aprendizprototype = {
+            saludar(){
+                console.log(`HOLA, ,ME LLAMO ${this.nombres}` + ` ${this.apellidos}`);
+            },
+            estudiar(){
+                console.log(`Matriculado en la ficha ${this.ficha}` + `y cursando el primer trimestre ${this.programa}!`);
+            }
+        }
+        Object.assign(Aprendiz.prototype, aprendizprototype);
+
+
+
+    </script>
+</html>
